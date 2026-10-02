@@ -1,0 +1,956 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffb3dc 0%,
+            #ff80c4 25%,
+            #ff4eae 50%,
+            #ff2698 75%,
+            #f00078 100%
+        );
+}
+
+
+/* =========================
+   GENEL BÖLÜM
+========================= */
+
+section {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+
+/* =========================
+   GİRİŞ
+========================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.25),
+            transparent 55%
+        );
+}
+
+
+.heart {
+    font-size: 100px;
+
+    color: white;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff0088,
+        0 0 50px #ff0088;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+
+.hero h1 {
+    font-size: 52px;
+
+    line-height: 1.3;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff0088,
+        0 0 50px #ff0088;
+}
+
+
+.hero h1 span {
+    color: white;
+}
+
+
+.hero p {
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    color: #fff0f8;
+}
+
+
+.scroll {
+    position: absolute;
+
+    bottom: 30px;
+
+    font-size: 40px;
+
+    animation: down 1.5s infinite;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px #ff0088;
+}
+
+
+/* =========================
+   SAYAÇ
+========================= */
+
+.counter-section {
+    background:
+        linear-gradient(
+            rgba(255, 45, 157, 0.15),
+            rgba(255, 45, 157, 0.35)
+        );
+}
+
+
+.counter-section h2,
+.photo-section h2,
+.music-section h2 {
+    font-size: 38px;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff0088;
+}
+
+
+.subtitle {
+    font-size: 18px;
+
+    margin-bottom: 45px;
+
+    color: #fff0f8;
+}
+
+
+.counter {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    max-width: 1000px;
+}
+
+
+.time-box {
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.15);
+
+    border: 2px solid rgba(255,255,255,0.7);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.35),
+        0 0 35px rgba(255,0,136,0.5);
+
+    transition: 0.3s;
+}
+
+
+.time-box:hover {
+    transform: translateY(-8px) scale(1.05);
+
+    box-shadow:
+        0 0 20px white,
+        0 0 45px #ff0088;
+}
+
+
+.time-box strong {
+    font-size: 42px;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px #ff0088;
+}
+
+
+.time-box span {
+    margin-top: 8px;
+
+    font-size: 18px;
+
+    color: #fff0f8;
+}
+
+
+/* =========================
+   FOTOĞRAF
+========================= */
+
+.photo-section {
+    background:
+        linear-gradient(
+            rgba(255, 100, 190, 0.25),
+            rgba(255, 30, 145, 0.4)
+        );
+}
+
+
+.photo-frame {
+    width: 380px;
+    height: 480px;
+
+    margin: 30px 0;
+
+    padding: 8px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.3);
+
+    border: 2px solid white;
+
+    box-shadow:
+        0 0 20px white,
+        0 0 50px #ff0088;
+
+    transition: 0.4s;
+
+    overflow: hidden;
+}
+
+
+.photo-frame:hover {
+    transform: scale(1.03);
+}
+
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+}
+
+
+.photo-section p {
+    font-size: 18px;
+
+    color: #fff0f8;
+}
+
+
+/* =========================
+   MÜZİK
+========================= */
+
+
+/* =========================
+   PİKAP
+========================= */
+
+.turntable {
+    position: relative;
+    width: 430px;
+    height: 360px;
+    margin: 30px auto;
+
+    background: linear-gradient(
+        145deg,
+        #24101d,
+        #120a10
+    );
+
+    border-radius: 25px;
+
+    border: 2px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 0 20px rgba(255,0,130,.3),
+        inset 0 0 30px rgba(0,0,0,.7);
+}
+
+
+/* =========================
+   PLAK
+========================= */
+
+.record {
+    position: absolute;
+
+    width: 270px;
+    height: 270px;
+
+    left: 30px;
+    top: 45px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #050505 0px,
+            #111 2px,
+            #050505 4px,
+            #181818 5px
+        );
+
+    border: 4px solid #000;
+
+    box-shadow:
+        inset 0 0 25px #000,
+        0 0 15px rgba(0,0,0,.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Plak dönsün */
+
+.record.playing {
+    animation: recordSpin 2.5s linear infinite;
+}
+
+
+/* =========================
+   ŞARKI KAPAĞI
+========================= */
+
+.record-label {
+    position: relative;
+
+    width: 92px;
+    height: 92px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 3px solid #111;
+
+    box-shadow:
+        0 0 12px rgba(0,0,0,.8);
+}
+
+
+.record-label img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* Plak ortasındaki delik */
+
+.record-hole {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #111;
+
+    border: 2px solid #aaa;
+
+    box-shadow:
+        0 0 3px white;
+}
+
+
+/* =========================
+   PİKAP KOLU
+========================= */
+
+.tonearm {
+    position: absolute;
+
+    right: 35px;
+    top: 42px;
+
+    width: 150px;
+    height: 190px;
+
+    transform-origin: 125px 20px;
+
+    transform: rotate(-8deg);
+
+    transition:
+        transform .8s cubic-bezier(.4,0,.2,1);
+
+    z-index: 10;
+}
+
+
+/* Uzun metal çubuk */
+
+.arm {
+    position: absolute;
+
+    right: 15px;
+    top: 20px;
+
+    width: 125px;
+    height: 11px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #eee,
+            #999,
+            #444,
+            #bbb
+        );
+
+    box-shadow:
+        2px 3px 6px rgba(0,0,0,.7);
+
+    transform-origin: right center;
+
+    transform: rotate(35deg);
+}
+
+
+/* =========================
+   İĞNE
+========================= */
+
+/* İğne artık uzun çubuğun TAM UCUNDA */
+
+.needle {
+    position: absolute;
+
+    left: -3px;
+    bottom: -18px;
+
+    width: 32px;
+    height: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #222,
+            #ddd,
+            #555
+        );
+
+    border-radius: 4px;
+
+    transform: rotate(-35deg);
+
+    box-shadow:
+        2px 3px 5px rgba(0,0,0,.7);
+}
+
+
+/* İğnenin aşağı doğru ince ucu */
+
+.needle-tip {
+    position: absolute;
+
+    width: 4px;
+    height: 20px;
+
+    left: 14px;
+    bottom: -17px;
+
+    background: #111;
+
+    border-radius: 3px;
+
+    transform: rotate(-10deg);
+}
+
+
+/* =========================
+   KOLUN DÖNDÜĞÜ MERKEZ
+========================= */
+
+.tonearm-pivot {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #eee 0%,
+            #777 45%,
+            #222 70%,
+            #000 100%
+        );
+
+    border: 3px solid #222;
+
+    box-shadow:
+        0 0 8px rgba(0,0,0,.8);
+}
+
+
+/* =========================
+   OYNATIRKEN KOL İNER
+========================= */
+
+.tonearm.playing {
+    transform: rotate(22deg);
+}
+
+
+/* =========================
+   PLAK DÖNÜŞ ANİMASYONU
+========================= */
+
+@keyframes recordSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   OYNATMA BUTONU
+========================= */
+
+.play-button {
+    width: 68px;
+    height: 68px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+
+    color: #e90078;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px white,
+        0 0 30px #ff0088;
+
+    transition: .3s;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+}
+
+.song-name {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px #ff0088;
+}
+
+
+/* =========================
+   TELEFON
+========================= */
+
+@media (max-width: 600px) {
+
+    .turntable {
+        width: 340px;
+        height: 320px;
+
+        transform: scale(0.9);
+    }
+
+    .record {
+        width: 220px;
+        height: 220px;
+
+        left: 25px;
+        top: 50px;
+    }
+
+    .record-label {
+        width: 70px;
+        height: 70px;
+    }
+
+    .tonearm {
+        right: 25px;
+    }
+}
+
+    
+/* =========================
+   PLAK
+========================= */
+
+.record {
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #111 0px,
+            #111 2px,
+            #1c1c1c 3px,
+            #080808 5px
+        );
+
+    border: 4px solid #050505;
+
+    box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(255, 255, 255, 0.15);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 30px auto;
+
+    transition: transform 0.3s;
+}
+
+
+/* Plak ortasındaki etiket */
+
+.record-label {
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ff4eae 0%,
+            #ff198f 55%,
+            #c90068 100%
+        );
+
+    border: 3px solid #111;
+
+    box-shadow:
+        0 0 10px rgba(255, 78, 174, 0.5);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Ortadaki küçük delik */
+
+.record-hole {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #050505;
+
+    border: 2px solid #777;
+}
+
+
+/* Dönen plak */
+
+.record.playing {
+    animation: spin 3s linear infinite;
+}
+
+
+/* Oynatma düğmesi */
+
+.play-button {
+    width: 70px;
+    height: 70px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #ff168d;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px white,
+        0 0 30px #ff0088;
+
+    transition: 0.3s;
+}
+
+
+.play-button:hover {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 20px white,
+        0 0 45px #ff0088;
+}
+
+
+/* Şarkı adı */
+
+.song-name {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px #ff0088;
+}
+
+
+/* Plak dönüşü */
+
+@keyframes spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* Telefon */
+
+@media (max-width: 600px) {
+
+    .record {
+        width: 230px;
+        height: 230px;
+    }
+
+    .record-label {
+        width: 70px;
+        height: 70px;
+    }
+
+}
+/* =========================
+   ANİMASYONLAR
+========================= */
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+@keyframes down {
+
+    0% {
+        transform: translateY(0);
+
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(12px);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+
+        opacity: 0.5;
+    }
+}
+
+
+/* =========================
+   TELEFON
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+
+    .heart {
+        font-size: 75px;
+    }
+
+
+    .hero p {
+        font-size: 16px;
+    }
+
+
+    .counter-section h2,
+    .photo-section h2,
+    .music-section h2 {
+        font-size: 28px;
+    }
+
+
+    .counter {
+        gap: 12px;
+    }
+
+
+    .time-box {
+        width: 135px;
+        height: 135px;
+    }
+
+
+    .time-box strong {
+        font-size: 34px;
+    }
+
+
+    .time-box span {
+        font-size: 16px;
+    }
+
+
+    .photo-frame {
+        width: 90%;
+        max-width: 350px;
+
+        height: 430px;
+    }
+
+
+    .music-player {
+        width: 90%;
+        max-width: 350px;
+    }
+}
+.song-info {
+    position: absolute;
+
+    right: 18px;
+    bottom: 18px;
+
+    text-align: center;
+
+    color: #fff;
+
+    transform: rotate(-8deg);
+
+    text-shadow:
+        0 0 5px #ff4fa3,
+        0 0 12px #ff0088;
+
+    z-index: 2;
+}
+
+.song-info span {
+    display: block;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.song-info small {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    opacity: .8;
+}
