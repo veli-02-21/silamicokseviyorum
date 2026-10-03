@@ -141,3 +141,64 @@ music.addEventListener("ended", function () {
     playButton.textContent = "▶";
 
 });
+const passwordInput = document.getElementById("passwordInput");
+const passwordButton = document.getElementById("passwordButton");
+const passwordScreen = document.getElementById("passwordScreen");
+const passwordError = document.getElementById("passwordError");
+
+
+// ŞİFRE
+const correctPassword = "0509";
+
+
+passwordButton.addEventListener("click", function () {
+
+    const enteredPassword = passwordInput.value;
+
+    if (enteredPassword === correctPassword) {
+
+        passwordError.textContent = "";
+
+        // Şifre ekranını kaldır
+        passwordScreen.classList.add("unlocked");
+
+
+        // =========================
+        // ŞARKIYI OTOMATİK BAŞLAT
+        // =========================
+
+        music.currentTime = 0; // Şarkı 35. saniyeden başlar
+        music.play();
+        // Plak dönsün
+        record.classList.add("playing");
+
+        // Pikap kolu plağın üzerine insin
+        tonearm.classList.add("playing");
+
+        // Oynatma tuşu "durdur" olarak görünsün
+        playButton.textContent = "❚❚";
+
+    } else {
+
+        passwordError.textContent = "Şifre yanlış, tekrar dene.";
+
+        passwordInput.value = "";
+
+        passwordInput.focus();
+
+    }
+
+});
+
+
+// Enter ile giriş
+
+passwordInput.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter") {
+
+        passwordButton.click();
+
+    }
+
+});
