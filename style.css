@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -66,7 +65,7 @@ section {
 
 
 .heart {
-    font-size: 100px;
+    font-size: 400px;
 
     color: white;
 
@@ -867,7 +866,7 @@ section {
 
 
     .heart {
-        font-size: 75px;
+        font-size: 300px;
     }
 
 
@@ -953,4 +952,370 @@ section {
     font-size: 10px;
 
     opacity: .8;
+}
+.sparkles {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    overflow: hidden;
+}
+
+.sparkles::before,
+.sparkles::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -50%;
+
+    background-image:
+        radial-gradient(circle, rgba(255, 120, 190, .9) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 190, 225, .8) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 80, 170, .7) 2px, transparent 3px);
+
+    background-size:
+        70px 70px,
+        110px 110px,
+        160px 160px;
+
+    animation: sparkleMove 18s linear infinite;
+
+    opacity: .7;
+}
+
+.sparkles::after {
+    animation:
+        sparkleMove 25s linear infinite reverse,
+        sparkleGlow 2s ease-in-out infinite alternate;
+
+    opacity: .45;
+}
+
+@keyframes sparkleMove {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, 50px);
+    }
+
+    100% {
+        transform: translate(0, 100px);
+    }
+}
+
+@keyframes sparkleGlow {
+
+    from {
+        opacity: .25;
+    }
+
+    to {
+        opacity: .8;
+    }
+}
+/* =========================
+   ŞİFRE EKRANI
+========================= */
+
+#passwordScreen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(25, 5, 18, 0.55);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    transition: opacity .8s ease,
+                visibility .8s ease;
+}
+
+
+/* Şifre kutusu */
+
+.password-box {
+    width: 330px;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background: rgba(45, 10, 35, .75);
+
+    border: 1px solid rgba(255, 105, 180, .6);
+
+    box-shadow:
+        0 0 20px rgba(255, 20, 147, .4),
+        0 0 50px rgba(255, 20, 147, .25);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* Kalp */
+
+.lock-icon {
+    font-size: 45px;
+
+    color: #ff4fa3;
+
+    text-shadow:
+        0 0 10px #ff1493,
+        0 0 25px #ff1493,
+        0 0 45px #ff1493;
+
+    margin-bottom: 10px;
+}
+
+
+.password-box h2 {
+    color: white;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        0 0 10px #ff1493;
+}
+
+
+.password-box p {
+    color: #ffd5ea;
+
+    margin-bottom: 20px;
+}
+
+
+/* Şifre kutusu */
+
+#passwordInput {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 100, 180, .6);
+
+    outline: none;
+
+    background: rgba(0, 0, 0, .35);
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+}
+
+
+#passwordInput::placeholder {
+    color: rgba(255,255,255,.6);
+}
+
+
+#passwordInput:focus {
+    box-shadow:
+        0 0 15px rgba(255, 20, 147, .6);
+}
+
+
+/* Giriş butonu */
+
+#passwordButton {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        90deg,
+        #ff1493,
+        #ff4fb3
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+#passwordButton:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 20px #ff1493;
+}
+
+
+/* Hatalı şifre */
+
+#passwordError {
+    color: #ff6b9f;
+
+    font-size: 14px;
+
+    margin-top: 15px;
+
+    margin-bottom: 0;
+
+    min-height: 18px;
+}
+
+
+/* =========================
+   ŞİFRE DOĞRU OLDUĞUNDA
+========================= */
+
+#passwordScreen.unlocked {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    backdrop-filter: blur(0);
+}
+.floating-hearts {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+.floating-hearts span {
+    position: absolute;
+
+    color: #ff5cad;
+
+    font-size: 40px;
+
+    opacity: 0.45;
+
+    text-shadow:
+        0 0 8px #ff1493,
+        0 0 18px #ff1493;
+
+    animation:
+        heartPulse 3s ease-in-out infinite;
+}
+
+
+/* Kalplerin konumları */
+
+.floating-hearts span:nth-child(1) {
+    left: 8%;
+    top: 18%;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 20%;
+    top: 72%;
+    animation-delay: .8s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 35%;
+    top: 30%;
+    animation-delay: 1.5s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 48%;
+    top: 82%;
+    animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(5) {
+    left: 62%;
+    top: 20%;
+    animation-delay: .5s;
+}
+
+.floating-hearts span:nth-child(6) {
+    left: 75%;
+    top: 65%;
+    animation-delay: 1.2s;
+}
+
+.floating-hearts span:nth-child(7) {
+    left: 88%;
+    top: 30%;
+    animation-delay: 2.2s;
+}
+
+.floating-hearts span:nth-child(8) {
+    left: 12%;
+    top: 90%;
+    animation-delay: 1.8s;
+}
+
+.floating-hearts span:nth-child(9) {
+    left: 55%;
+    top: 48%;
+    animation-delay: .3s;
+}
+
+.floating-hearts span:nth-child(10) {
+    left: 92%;
+    top: 85%;
+    animation-delay: 1s;
+}
+
+
+/* Büyüyüp küçülme */
+
+@keyframes heartPulse {
+
+    0% {
+        transform: scale(0.7);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: scale(0.7);
+        opacity: 0.25;
+    }
 }
